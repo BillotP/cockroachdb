@@ -1,7 +1,7 @@
 # CockroachDB
 ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/aerogrow/cockroachdb?sort=semver&label=Image%20tag&logo=docker) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/aerogrow/cockroachdb?label=Docker%20Build&logo=docker) ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/aerogrow/cockroachdb?logo=docker) 
 
-A small and multi architecture* container image running [Cockroachdb](https://www.cockroachlabs.com/product/scale/) with included samples kubernetes [deployment charts](./config)
+A small and multi architecture* container image running [Cockroachdb](https://www.cockroachlabs.com/product/scale/) with included samples kubernetes [deployment charts](https://github.com/BillotP/cockroachdb/tree/main/config)
 
 
 
