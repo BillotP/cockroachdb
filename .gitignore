@@ -1,6 +1,6 @@
 *.sh
-.credential
-config
+*.sql
 certs
+.credential
 my-safe-directory
 request-cert
