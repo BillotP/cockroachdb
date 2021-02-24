@@ -1,0 +1,6 @@
+*.sh
+.credential
+config
+certs
+my-safe-directory
+request-cert
