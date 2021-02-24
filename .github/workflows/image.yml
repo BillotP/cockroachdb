@@ -17,8 +17,10 @@ jobs:
           version: latest
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      - name: build the 'builder' image
+        run: docker buildx build --target build --cache-from aerogrow/cockroachdb:build --push --tag aerogrow/cockroachdb:build --tag aerogrow/cockroachdb:v20.2.5_build  --platform linux/amd64,linux/arm64/v8 .
       - name: build the image
-        run: docker buildx build --push --tag aerogrow/cockroachdb --tag aerogrow/cockroachdb:v20.2.5  --platform linux/amd64,linux/arm64/v8 .
+        run: docker buildx build --cache-from aerogrow/cockroachdb --push  --tag aerogrow/cockroachdb --tag aerogrow/cockroachdb:v20.2.5  --platform linux/amd64,linux/arm64/v8 .
       - name: Scan current project
         uses: anchore/scan-action@v2
         with:
