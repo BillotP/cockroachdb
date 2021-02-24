@@ -1,11 +1,11 @@
-```bash
-#!/usr/bin/env bash
-# exit when any command fails
-set -e
-```
-##           BEFORE INSTALL
+# CockroachDB
+A minimal and multi arch* container build of [Cockroachdb](https://www.cockroachlabs.com/product/scale/) with samples kubernetes [deployment charts](./config)
 
-#### Install cockroach cli
+\* Built for `amd64` and `arm64/v8` (Currently running on RaspberryPi 4 device)
+
+## BEFORE INSTALL
+
+#### Install **cockroach cli**
 
 - `mkdir certs my-safe-directory`
 
@@ -13,15 +13,17 @@ set -e
 
 - `sudo mkdir -p /usr/local/lib/cockroach`
 
-- `sudo cp -i cockroach-v20.2.3.linux-amd64/lib/libgeos.so /usr/local/lib/cockroach/`
+- `sudo cp -i cockroach-v20.2.3.linux-amd64/lib/libgeos.so /usr/local/lib/cockroach/`*
 
-- `sudo cp -i cockroach-v20.2.3.linux-amd64/lib/libgeos_c.so /usr/local/lib/cockroach/`
+- `sudo cp -i cockroach-v20.2.3.linux-amd64/lib/libgeos_c.so /usr/local/lib/cockroach/`*
 
-- `sudo mv cockroach-v20.2.3.linux-amd64/cockroach /usr/local/bin/`
+- `sudo mv cockroach-v20.2.3.linux-amd64/cockroach /usr/local/bin/`*
 
-- `sudo rm -rf cockroach-v20.2.3.linux-amd64`
+- `sudo rm -rf cockroach-v20.2.3.linux-amd64`*
 
-#### Run it to create certificates
+\* Check latest cockroachdb version [here](https://www.cockroachlabs.com/docs/releases/#production-releases)
+
+#### Run it to **create certificates**
 
 - `cockroach cert create-ca --certs-dir=certs --ca-key=my-safe-directory/ca.key`
 - `cockroach cert create-client root --certs-dir=certs --ca-key=my-safe-directory/ca.key`
@@ -46,7 +48,7 @@ cockroach cert create-node \
 
 - `kubectl create secret generic cockroachdb.node --from-file=certs`
 
-##              INSTALL
+## INSTALL
 ```bash
 echo "[INFO] Will create a secure CockroachDB cluster"
 kubectl create -f config/cockroachdb-statefulset.yaml
