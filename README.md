@@ -9,13 +9,7 @@ A small and multi architecture* container image running [Cockroachdb](https://ww
 
 ## Before Install
 
-#### Clone this repository
-
-- `git clone https://github.com/BillotP/cockroachdb`
-
 #### Install **cockroach cli***
-
-- `cd cockroachdb && mkdir certs my-safe-directory`
 
 - `wget -qO- https://binaries.cockroachdb.com/cockroach-v20.2.3.linux-amd64.tgz | tar xvz`
 
@@ -32,6 +26,8 @@ A small and multi architecture* container image running [Cockroachdb](https://ww
 \* Check latest CockroachDB version [here](https://www.cockroachlabs.com/docs/releases/#production-releases) and update above commands accordingly
 
 #### Run it to **create certificates**
+
+- `mkdir -p cockroach/certs cockroach/my-safe-directory && cd cockroach`
 
 - `cockroach cert create-ca --certs-dir=certs --ca-key=my-safe-directory/ca.key`
 - `cockroach cert create-client root --certs-dir=certs --ca-key=my-safe-directory/ca.key`
