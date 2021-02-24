@@ -2,7 +2,7 @@ name: build our image
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
 
 jobs:
   build:
@@ -15,7 +15,11 @@ jobs:
         uses: crazy-max/ghaction-docker-buildx@v1
         with:
           version: latest
+      - name: Scan current project
+        uses: anchore/scan-action@v2
+        with:
+          path: "."
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: build the image
-        run: docker buildx build --push --tag aerogrow/cockroachdb --tag aerogrow/cockroachdb:v20.2.5  --platform linux/amd64,linux/arm64/v8 . 
+        run: docker buildx build --push --tag aerogrow/cockroachdb --tag aerogrow/cockroachdb:v20.2.5  --platform linux/amd64,linux/arm64/v8 .
