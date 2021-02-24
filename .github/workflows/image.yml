@@ -16,4 +16,4 @@ jobs:
         with:
           version: latest
       - name: build the image
-        run: docker buildx build --push --tag aerogrow/cockroachdb  --platform linux/amd64,linux/arm/v7,linux/arm64,linux/arm64/v8 . 
+        run: docker buildx build --push --tag aerogrow/cockroachdb  --platform linux/amd64,linux/arm64/v8 . 
