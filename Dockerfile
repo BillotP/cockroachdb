@@ -3,7 +3,7 @@
 #   1. BUILD
 #
 ##
-FROM golang:1.15 as build
+FROM golang:1.16 as build
 ARG version=v21.2.4
 ENV version=$version
 ENV DEBIAN_FRONTEND=noninteractive
