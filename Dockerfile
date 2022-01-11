@@ -4,7 +4,7 @@
 #
 ##
 FROM golang:1.15 as build
-ARG version=v20.2.5
+ARG version=v21.2.4
 ENV version=$version
 ENV DEBIAN_FRONTEND=noninteractive
 # Install build dependency
