@@ -20,7 +20,7 @@ jobs:
       # - name: build the 'builder' image
       #   run: docker buildx build --platform linux/amd64,linux/arm64/v8 --target build --cache-from aerogrow/cockroachdb:build --push --tag aerogrow/cockroachdb:build --tag aerogrow/cockroachdb:v20.2.5_build .
       - name: build the image
-        run: docker buildx build --platform linux/amd64,linux/arm64/v8 --cache-from aerogrow/cockroachdb --push --tag aerogrow/cockroachdb --tag aerogrow/cockroachdb:v20.2.5 .
+        run: docker buildx build --platform linux/amd64,linux/arm64/v8 --cache-from aerogrow/cockroachdb --push --tag aerogrow/cockroachdb --tag aerogrow/cockroachdb:v21.2.4 .
       - name: Scan current project
         uses: anchore/scan-action@v2
         with:
